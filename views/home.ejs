@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Trang Chủ</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            navigator.mediaDevices.getUserMedia({audio: false, video: true})
+                .then( (stream) => {
+                  const video = document.querySelector("video");
+                  video.srcObject = stream;
+                  video.onloadedmetadata = (e) => {
+                      video.play();
+                  }  
+                })
+                .catch(error => console.log(error));
+
+
+        </script>
+        <video id="localStream" width="500" controls>
+
+        </video>
+    </body>
+</html>
