@@ -68,29 +68,39 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function openCamera(){
+const playVideo = __webpack_require__(2);
+
+function openStream(){
     navigator.mediaDevices.getUserMedia({audio: false, video: true})
-        .then( (stream) => {
-                    const video = document.querySelector("video");
-                    video.srcObject = stream;
-                    video.onloadedmetadata = (e) => {
-                        video.play();
-                }  
-            })
+        .then( (stream) => playVideo(stream, "video"))
         .catch(error => console.log(error));
 }
 
-module.exports = openCamera;
+module.exports = openStream;
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
                         // openCamera là Tên module exports
-const openCamera = __webpack_require__(0);
-openCamera();
+const openStream = __webpack_require__(0);
+openStream();
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+function playVideo(stream, tag){
+    const video = document.querySelector(tag);
+    video.srcObject = stream;
+    video.onloadedmetadata = (e) => {
+        video.play();
+    }  
+}
+
+module.exports = playVideo;
 
 /***/ })
 /******/ ]);
