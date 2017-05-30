@@ -4,9 +4,17 @@
         
     </head>
     <body>
-        <video id="localStream" width="500" controls>
-
-        </video>
+        <video id="localStream" width="500" controls></video>
+         <br/> <br/>
+         <video id="friendStream" width="500" controls></video>
+         <br/> <br/>
+        <label>My Connect Token</label>
+        <br/> <br/>
+        <textarea cols="100" rows="3" id="txtMySignal"></textarea>
+        <br/> <br/>
+        <input type="text" placeholder="Your friend's signal" id="txtFriendSignal"/>
+        <br/> <br/>
+        <button id="btnConnect">Connect</button>
         <script src="js/bundle.js"></script>
     </body>
 </html>

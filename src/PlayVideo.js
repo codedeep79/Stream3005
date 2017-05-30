@@ -1,5 +1,5 @@
-function playVideo(stream, tag){
-    const video = document.querySelector(tag);
+function playVideo(stream, id){
+    const video = document.getElementById(id);
     video.srcObject = stream;
     video.onloadedmetadata = (e) => {
         video.play();
